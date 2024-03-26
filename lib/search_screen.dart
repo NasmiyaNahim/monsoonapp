@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:monsoonapp2/favourites.dart';
+import 'package:monsoonapp2/home.dart';
+import 'package:monsoonapp2/profile.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -49,25 +52,58 @@ class SearchScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-        child: Container(
-          width: 370,
-          height: 50,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(50),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _buildIcon('assets/images/Home.png'),
-              _buildIcon('assets/images/Search (1).png'),
-              _buildIcon('assets/images/Love.png'),
-              _buildIcon('assets/images/User.png'),
-            ],
-          ),
+  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+  child: Container(
+    width: 370,
+    height: 50,
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(50),
+    ),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          },
+          child: _buildIcon('assets/images/Home.png'),
         ),
-      ),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SearchScreen()),
+            );
+          },
+          child: _buildIcon('assets/images/Search (1).png'),
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Favourites()),
+            );
+          },
+          child: _buildIcon('assets/images/Love.png'),
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Profile()),
+            );
+          },
+          child: _buildIcon('assets/images/User.png'),
+        ),
+      ],
+    ),
+  ),
+),
+
     );
   }
 

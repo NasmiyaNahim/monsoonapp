@@ -67,6 +67,7 @@ flutter:
     - assets/images/User.png
     - assets/images/Search (1).png
     - assets/images/Time Machine.png
+    - assets/images/Rectangle 34.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

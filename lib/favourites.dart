@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:monsoonapp2/home.dart';
+import 'package:monsoonapp2/profile.dart';
+import 'package:monsoonapp2/search_screen.dart';
 
 class Favourites extends StatelessWidget {
   const Favourites({Key? key}) : super(key: key);
@@ -25,9 +28,9 @@ class Favourites extends StatelessWidget {
               child: Row(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 20),
+                    padding: const EdgeInsets.only(left: 30),
                     child: Text(
-                      'Favourites',
+                      'My Favourites',
                       style: TextStyle(
                         color: Color(0xFF480460),
                         fontSize: 15,
@@ -43,72 +46,103 @@ class Favourites extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 20,
+            left: 25,
             top: 90,
             child: _buildItem('assets/images/image 36.png'),
           ),
           Positioned(
-            left: 300, // Adjusted left attribute
+            left: 290, // Adjusted left attribute
             top: 90, // Same top attribute
             child: _buildItem('assets/images/image 36.png'),
           ),
           Positioned(
-            left: 190,
+            left: 155,
             top: 220,
-            child: _buildItem('assets/images/image 36.png'),
+            child: _buildItem('assets/images/Rectangle 35.png'),
           ),
           Positioned(
-            left: 300,
+            left: 290,
             top: 220,
-            child: _buildItem('assets/images/image 36.png'),
+            child: _buildItem('assets/images/Rectangle 35.png'),
           ),
           Positioned(
-            left: 20,
+            left: 25,
             top: 345,
-            child: _buildItem('assets/images/image 36.png'),
+            child: _buildItem('assets/images/Rectangle 35.png'),
           ),
           Positioned(
-            left: 130,
+            left: 155,
             top: 345,
-            child: _buildItem('assets/images/image 36.png'),
+            child: _buildItem('assets/images/Rectangle 35.png'),
           ),
           Positioned(
-            left: 20,
+            left: 25,
             top: 470,
             child: _buildItem('assets/images/image 36.png'),
           ),
           Positioned(
-            left: 130,
+            left: 155,
             top: 470,
             child: _buildItem('assets/images/image 36.png'),
           ),
           Positioned(
-            left: 240,
+            left: 290,
             top: 470,
             child: _buildItem('assets/images/image 36.png'),
           ),
         ],
       ),
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-        child: Container(
-          width: 370,
-          height: 50,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(50),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _buildIcon('assets/images/Home.png'),
-              _buildIcon('assets/images/Search (1).png'),
-              _buildIcon('assets/images/Love.png'),
-              _buildIcon('assets/images/User.png'),
-            ],
-          ),
+  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+  child: Container(
+    width: 370,
+    height: 50,
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(50),
+    ),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          },
+          child: _buildIcon('assets/images/Home.png'),
         ),
-      ),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SearchScreen()),
+            );
+          },
+          child: _buildIcon('assets/images/Search (1).png'),
+        ),
+        GestureDetector(
+          onTap: () {
+            // Handle onTap for the third icon (Love)
+            // Navigate to the Love page or perform any other desired action
+          },
+          child: _buildIcon('assets/images/Love.png'),
+        ),
+        GestureDetector(
+          onTap: () {
+           Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Profile()),
+            );
+          },
+          child: _buildIcon('assets/images/User.png'),
+        ),
+      ],
+    ),
+  ),
+),
+
     );
   }
 
